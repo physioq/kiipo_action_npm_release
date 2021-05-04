@@ -1,0 +1,25 @@
+name: 'ACTION_TESTER'
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - staging
+      - develop
+    tags-ignore:
+      - v*
+jobs: 
+  action_tester_main_job:
+    name: 'ACTION_TESTER_MAIN_JOB'
+    runs-on: ubuntu-latest 
+    steps:
+      - run: echo ${{ github.worklow }}
+      - name: 'DISABLE'
+        uses: 'physioq/kiipo_action_toggle_workflow@v5'
+        with: 
+          enable_or_disable: 'disable'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'ENABLE'
+        uses: 'physioq/kiipo_action_toggle_workflow@v5'
+        with: 
+          enable_or_disable: 'enable'
+          github_token: ${{ secrets.GITHUB_TOKEN }}

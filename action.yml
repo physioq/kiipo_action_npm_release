@@ -1,0 +1,17 @@
+name: 'kiipo_action_toggle_workflow'
+description: 'enable or disable a github workflow'
+inputs:
+  github_token:
+    required: true 
+    description: 'octokit token'
+  workflow_filename:
+    description: 'filename of the workflow to disable'
+  enable_or_disable:
+    required: true 
+    description: 'put "enable" or "disable"'
+outputs:
+  version:
+    description: 'new version of the package'
+runs:
+  using: 'node12'
+  main: 'build/index.js'
