@@ -1,0 +1,26 @@
+{
+  "name": "@kiipo/action_npm_release",
+  "version": "0.0.0",
+  "description": "an action to do an npm release",
+  "main": "build/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "sync": "npm update @kiipo/babel-preset @kiipo/eslint-config",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@kiipo/eslint-config": "*",
+    "chai": "^4.3.4",
+    "eslint": "^7.25.0",
+    "mocha": "^8.3.2"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.7",
+    "@actions/github": "^4.0.0",
+    "@babel/core": "^7.14.0",
+    "@babel/register": "^7.13.16",
+    "@kiipo/babel-preset": "*",
+    "date-fns": "^2.21.1"
+  }
+}
