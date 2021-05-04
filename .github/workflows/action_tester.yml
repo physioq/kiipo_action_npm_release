@@ -1,0 +1,22 @@
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+    tags-ignore:
+      - v*
+jobs: 
+  action_tester_main_job:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: 'DISABLE'
+        uses: 'physioq/kiipo_action_toggle_workflow@v1'
+        with: 
+          enable_or_disable: 'disable'
+          github_token: ${{ secrets.KIIPO_BOT_GITHUB_AUTOMATION_TOKEN }}
+      - name: 'ENABLE'
+        if: ${{ always() }}
+        uses: 'physioq/kiipo_action_toggle_workflow@v1'
+        with: 
+          enable_or_disable: 'enable'
+          github_token: ${{ secrets.KIIPO_BOT_GITHUB_AUTOMATION_TOKEN }}
