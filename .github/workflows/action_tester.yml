@@ -2,6 +2,8 @@ name: 'ACTION_TESTER'
 on: 
   workflow_dispatch:
   push:
+    branches:
+      - *
     tags-ignore:
       - v*
 jobs: 
@@ -15,12 +17,12 @@ jobs:
       - name: 'DISABLE'
         uses: 'physioq/kiipo_action_toggle_workflow@v1'
         with: 
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_filename: 'manual_trigger.yml'
           enable_or_disable: 'disable'
+          workflow_filename: 'action_tester.yml'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: 'ENABLE'
         uses: 'physioq/kiipo_action_toggle_workflow@v1'
         with: 
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_filename: 'manual_trigger.yml'
           enable_or_disable: 'enable'
+          workflow_filename: 'action_tester.yml'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
