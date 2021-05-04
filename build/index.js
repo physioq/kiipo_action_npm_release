@@ -80674,9 +80674,6 @@ const package_namespaceObject = {"i8":"0.0.1"};
 
 
 
-const octokit = github.getOctokit(GITHUB_TOKEN)
-const {payload} = github.context
-
 const GITHUB_TOKEN = core.getInput('github_token')
 const WORKFLOW_FILENAME = core.getInput('workflow_filename')
 const ENABLE_OR_DISABLE = core.getInput('enable_or_disable')
@@ -80687,6 +80684,9 @@ const ENDPOINT = {
 }
 
 const main = async () => {
+  const octokit = github.getOctokit(GITHUB_TOKEN)
+  const {payload} = github.context
+
   const endpoint = ENABLE_OR_DISABLE == 'enable' ? ENDPOINT.ENABLE : ENDPOINT.DISABLE
 
   await octokit.request(endpoint, {
