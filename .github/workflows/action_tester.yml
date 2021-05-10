@@ -12,7 +12,7 @@ jobs:
     name: 'ACTION_TESTER_MAIN_JOB'
     runs-on: ubuntu-latest 
     steps:
-      - run: echo ${{ github.worklow }}
+      - run: echo ${{ github.workflow }}
       - name: 'DISABLE'
         uses: 'physioq/kiipo_action_toggle_workflow@v5'
         with: 
