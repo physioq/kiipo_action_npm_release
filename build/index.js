@@ -80667,7 +80667,7 @@ var core = __nccwpck_require__(2186);
 // EXTERNAL MODULE: ./node_modules/@actions/github/lib/github.js
 var github = __nccwpck_require__(5438);
 ;// CONCATENATED MODULE: ./package.json
-const package_namespaceObject = {"i8":"0.0.5"};
+const package_namespaceObject = {"i8":"0.0.1"};
 // EXTERNAL MODULE: external "path"
 var external_path_ = __nccwpck_require__(5622);
 ;// CONCATENATED MODULE: ./src/index.js
