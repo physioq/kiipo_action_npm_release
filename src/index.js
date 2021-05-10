@@ -22,7 +22,7 @@ export const main = async () => {
   await octokit.request(endpoint, {
     owner: payload.organization.login,
     repo: payload.repository.name,
-    workflow_filename: WORKFLOW_FILENAME || basename(github.workflow),
+    workflow_filename: WORKFLOW_FILENAME || basename(github.context.workflow),
   })
 
   core.setOutput('version', `v${version.split('.')[2]}`)
