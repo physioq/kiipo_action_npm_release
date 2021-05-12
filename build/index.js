@@ -80667,7 +80667,7 @@ var core = __nccwpck_require__(2186);
 // EXTERNAL MODULE: ./node_modules/@actions/github/lib/github.js
 var github = __nccwpck_require__(5438);
 ;// CONCATENATED MODULE: ./package.json
-const package_namespaceObject = {"i8":"0.0.2"};
+const package_namespaceObject = {"i8":"0.0.3"};
 // EXTERNAL MODULE: external "path"
 var external_path_ = __nccwpck_require__(5622);
 ;// CONCATENATED MODULE: ./src/index.js
@@ -80677,9 +80677,12 @@ var external_path_ = __nccwpck_require__(5622);
 
 
 
+const sleep = (ms) =>  new Promise((resolve) => setTimeout(ms, resolve))
+
 const GITHUB_TOKEN = core.getInput('github_token')
 const WORKFLOW_FILENAME = core.getInput('workflow_filename')
 const ENABLE_OR_DISABLE = core.getInput('enable_or_disable')
+const ENABLE_MILISECOND_DELAY = 5000
 
 const ENDPOINT = {
   DISABLE: 'PUT /repos/{owner}/{repo}/actions/workflows/{workflow_filename}/disable',
@@ -80691,6 +80694,8 @@ const main = async () => {
   const {payload} = github.context
 
   const endpoint = ENABLE_OR_DISABLE == 'enable' ? ENDPOINT.ENABLE : ENDPOINT.DISABLE
+
+  if (endpoint == 'enable') await sleep(ENABLE_MILISECOND_DELAY)
 
   await octokit.request(endpoint, {
     owner: payload.organization.login,

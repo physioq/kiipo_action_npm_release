@@ -1,6 +1,6 @@
 {
   "name": "@kiipo/action_toggle_workflow",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "an action to do an npm release",
   "main": "build/index.js",
   "scripts": {
